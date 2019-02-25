@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="WorldClock" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="SbY-SG-tTZ" customClass="ClockMenuController" customModule="WorldClock" customModuleProvider="target">
+            <connections>
+                <outlet property="statusMenu" destination="QDM-iq-oVr" id="hb4-un-UDZ"/>
+            </connections>
+        </customObject>
+        <menu id="QDM-iq-oVr">
+            <items>
+                <menuItem title="Quit" keyEquivalent="q" id="5hz-au-T0a">
+                    <connections>
+                        <action selector="quitClicked:" target="SbY-SG-tTZ" id="LeU-Rq-tlR"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="2.5" y="63"/>
+        </menu>
+    </objects>
+</document>
