@@ -12,6 +12,7 @@
 		C4FDF65022240804005A05EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDF64E22240804005A05EF /* MainMenu.xib */; };
 		C4FDF659222410BE005A05EF /* ClockMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDF658222410BE005A05EF /* ClockMenuController.swift */; };
 		C4FDF65B2225611F005A05EF /* Timezones.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDF65A2225611F005A05EF /* Timezones.swift */; };
+		C4FDF65D22257222005A05EF /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDF65C22257222005A05EF /* ClockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		C4FDF65222240804005A05EF /* WorldClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorldClock.entitlements; sourceTree = "<group>"; };
 		C4FDF658222410BE005A05EF /* ClockMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockMenuController.swift; sourceTree = "<group>"; };
 		C4FDF65A2225611F005A05EF /* Timezones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timezones.swift; sourceTree = "<group>"; };
+		C4FDF65C22257222005A05EF /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 		C4FDF64922240802005A05EF /* WorldClock */ = {
 			isa = PBXGroup;
 			children = (
+				C4FDF64A22240802005A05EF /* AppDelegate.swift */,
 				C4FDF658222410BE005A05EF /* ClockMenuController.swift */,
 				C4FDF65A2225611F005A05EF /* Timezones.swift */,
-				C4FDF64A22240802005A05EF /* AppDelegate.swift */,
 				C4FDF64C22240804005A05EF /* Assets.xcassets */,
 				C4FDF64E22240804005A05EF /* MainMenu.xib */,
+				C4FDF65C22257222005A05EF /* ClockView.swift */,
 				C4FDF65122240804005A05EF /* Info.plist */,
 				C4FDF65222240804005A05EF /* WorldClock.entitlements */,
 			);
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FDF64B22240802005A05EF /* AppDelegate.swift in Sources */,
+				C4FDF65D22257222005A05EF /* ClockView.swift in Sources */,
 				C4FDF659222410BE005A05EF /* ClockMenuController.swift in Sources */,
 				C4FDF65B2225611F005A05EF /* Timezones.swift in Sources */,
 			);
