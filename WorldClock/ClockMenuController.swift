@@ -8,8 +8,10 @@
 
 import Cocoa
 
+let cities = [allTimezones[0], allTimezones[3], allTimezones[100], allTimezones[40]]
+
 class ClockMenuController: NSObject {
-    
+
     // MARK: GUI stuff
     @IBOutlet weak var statusMenu: NSMenu!
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -18,6 +20,7 @@ class ClockMenuController: NSObject {
         statusItem.button?.title = "WorldClock"
         statusItem.menu = statusMenu
         addClocksToMenu()
+        
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
@@ -25,9 +28,15 @@ class ClockMenuController: NSObject {
     }
     
     func addClocksToMenu() {
-        let clock = NSMenuItem(title: "Clock", action: nil, keyEquivalent: "")
-        clock.view = ClockView.init(city: allTimezones[0])
+        _ = cities.map{ addClock(city: $0) }
+    }
+    
+    func addClock(city: CityTime) {
+        let seperator = NSMenuItem.separator()
+        statusMenu.insertItem(seperator, at: 0)
         
+        let clock = NSMenuItem(title: "Clock", action: nil, keyEquivalent: "")
+        clock.view = ClockView.init(city: city)
         statusMenu.insertItem(clock, at: 0)
     }
 }

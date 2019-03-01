@@ -9,6 +9,12 @@
 import Cocoa
 
 class ClockView: NSView {
+    var thisCity = allTimezones[0]
+    var timer = Timer()
+    
+    var cityLabel: NSTextField = NSTextField(labelWithString: "")
+    var dateLabel: NSTextField = NSTextField(labelWithString: "")
+    var timeLabel: NSTextField = NSTextField(labelWithString: "")
     
     override init(frame frameRect: NSRect) {
         super.init(frame:frameRect);
@@ -20,10 +26,10 @@ class ClockView: NSView {
     
     //or customized constructor/ init
     init(city: CityTime) {
+        thisCity = city
+        
         // Interface elements
         let cityLabel: NSTextField = NSTextField(labelWithString: city.city())
-        let dateLabel: NSTextField = NSTextField(labelWithString: city.date())
-        let timeLabel: NSTextField = NSTextField(labelWithString: city.time())
         // Clock size
         let size = NSRect(x: 0, y: 0, width: 340, height: 70)
         
@@ -62,6 +68,18 @@ class ClockView: NSView {
         
         // Pushing it out
         super.init(frame: size)
+        
+        // This timer keeps the time up to date.
+        // Adding the timer to the Common Run Loop is necessary as this custom view exists in a menu
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateStrings), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
+        
+        // Wrap up
         self.addSubview(clockStack)
+    }
+    
+    @objc func updateStrings() {
+        timeLabel.stringValue = thisCity.time()
+        dateLabel.stringValue = thisCity.date()
     }
 }
