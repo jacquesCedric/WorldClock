@@ -31,20 +31,12 @@ class ClockView: NSView {
         // Interface elements
         let cityLabel: NSTextField = NSTextField(labelWithString: city.city())
         // Clock size
-        let size = NSRect(x: 0, y: 0, width: 340, height: 70)
-        
-        
-        // Styling
-        for label in [dateLabel, timeLabel, cityLabel] {
-            label.isEditable = false
-            label.isSelectable = false
-            label.drawsBackground = false
-            label.isBordered = false
-        }
+        let size = NSRect(x: 0, y: 0, width: 340, height: 60)
         
         cityLabel.font = NSFont.systemFont(ofSize: 23)
         dateLabel.font = NSFont.systemFont(ofSize: 13)
         timeLabel.font = NSFont.systemFont(ofSize: 51, weight: .light)
+        timeLabel.alignment = .right
         
         // Grouping UI elements
         let leftStack = NSStackView()
@@ -57,7 +49,7 @@ class ClockView: NSView {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         
         let clockStack = NSStackView()
-        clockStack.edgeInsets = NSEdgeInsets(top: 12, left: 10, bottom: 10, right: 10)
+//        clockStack.edgeInsets = NSEdgeInsets(top: 12, left: 10, bottom: 10, right: 10)
         clockStack.addView(leftStack, in: .leading)
         clockStack.addView(timeLabel, in: .trailing)
         clockStack.orientation = .horizontal
@@ -76,6 +68,18 @@ class ClockView: NSView {
         
         // Wrap up
         self.addSubview(clockStack)
+        
+        // Final constraints
+        let views: [String: Any] = ["clockStack": clockStack]
+        var allConstraints: [NSLayoutConstraint] = []
+        
+        let horizontalConstraint = NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-[clockStack]-|",
+            options: .alignAllCenterY,
+            metrics: nil, views: views)
+        
+        allConstraints += horizontalConstraint
+        NSLayoutConstraint.activate(allConstraints)
     }
     
     @objc func updateStrings() {
