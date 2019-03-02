@@ -23,6 +23,9 @@
                 <menuItem isSeparatorItem="YES" id="qMW-Av-6yX"/>
                 <menuItem title="Preferences" id="hVl-Zs-pav">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="SbY-SG-tTZ" id="Xcm-qX-NWe"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="5hz-au-T0a">
                     <connections>

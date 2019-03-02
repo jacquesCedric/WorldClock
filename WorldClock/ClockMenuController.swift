@@ -15,12 +15,20 @@ class ClockMenuController: NSObject {
     // MARK: GUI stuff
     @IBOutlet weak var statusMenu: NSMenu!
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    
+    // Preferences Window
+    var preferencesWindow: PreferencesWindow!
 
     override func awakeFromNib() {
         statusItem.button?.title = "WorldClock"
         statusItem.menu = statusMenu
         addClocksToMenu()
         
+        preferencesWindow = PreferencesWindow()
+    }
+    
+    @IBAction func preferencesClicked(_ sender: NSMenuItem) {
+        preferencesWindow.showWindow(nil)
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
