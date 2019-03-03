@@ -25,8 +25,8 @@
                     <tokenField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3B-Mj-IDi">
                         <rect key="frame" x="20" y="61" width="630" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <tokenFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" alignment="left" placeholderString="Enter city names here..." drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="DR3-H8-0JN">
-                            <font key="font" metaFont="system" size="16"/>
+                        <tokenFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" alignment="left" placeholderString="Enter city names here..." drawsBackground="YES" allowsEditingTextAttributes="YES" usesSingleLineMode="YES" tokenStyle="rounded" id="DR3-H8-0JN">
+                            <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
@@ -38,6 +38,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="savePreferences:" target="-2" id="ukE-E5-g6r"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>

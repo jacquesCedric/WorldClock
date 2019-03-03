@@ -31,4 +31,14 @@ class PreferencesWindow: NSWindowController {
         let cities: [String] = allTimezones.map { $0.city() }
         citiesTokenField.defaultTokenKeywords = cities
     }
+    
+    @IBAction func savePreferences(_ sender: Any) {
+        // Cast the tags to NSArray, as otherwise __NSArrayI is returned
+        let rawTags = citiesTokenField.objectValue as! NSArray
+
+        // Pull the names from the custom ACBTokens
+        let cleanTags = rawTags.map{ ($0 as! ACBToken).name }
+        print(cleanTags)
+    }
+    
 }

@@ -49,7 +49,6 @@ class ClockView: NSView {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         
         let clockStack = NSStackView()
-//        clockStack.edgeInsets = NSEdgeInsets(top: 12, left: 10, bottom: 10, right: 10)
         clockStack.addView(leftStack, in: .leading)
         clockStack.addView(timeLabel, in: .trailing)
         clockStack.orientation = .horizontal

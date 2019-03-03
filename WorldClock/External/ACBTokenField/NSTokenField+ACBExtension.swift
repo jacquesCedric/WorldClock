@@ -3,6 +3,7 @@
 //  ACBTokenField
 //
 //  Created by Akhil on 7/30/17.
+//  Modified by Jacob Gold on 3/03/19
 //  Copyright © 2017 akhil. All rights reserved.
 //
 
@@ -255,12 +256,11 @@ extension NSTokenField {
     
     
     // # MARK: Public method
-    
-    public func convertToACBTokenField() {
+    public func convertToACBTokenField(displayClearButton: Bool = false) {
         tokenFieldController.tokenField = self
         setupCellToField()
         
-        shouldDisplayClearButton = true
+        shouldDisplayClearButton = displayClearButton // J
         let x = self.frame.size.width - viewPadding - 3
         let y = (self.frame.size.height - viewPadding) / 2
         clearButton.frame = CGRect(x: x,
@@ -346,34 +346,6 @@ fileprivate class ACBTokenFieldController: NSObject, NSTokenFieldDelegate {
     fileprivate var didDeleteTokenBlock: ((NSInteger, NSTokenField) -> ())?
     
     private var prevTokenCount: Int = 0
-    
-//TODO: This doesn't work due to a swift compiler issue since tokenField is weak
-//    private static var tokenContext = 0
-    
-//    @objc var tokenField: NSTokenField? {
-//        didSet {
-//            setupObservers()
-//        }
-//    }
-//    
-//    deinit {
-//        removeObserver(self, forKeyPath: #keyPath(tokenField.delegate), context: &ACBTokenFieldController.tokenContext)
-//    }
-//    
-//    func setupObservers() {
-//        self.addObserver(self, forKeyPath: #keyPath(tokenField.delegate), options: [.old, .new], context: &ACBTokenFieldController.tokenContext)
-//    }
-//    
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        if context == &ACBTokenFieldController.tokenContext {
-//            if keyPath == #keyPath(tokenField.delegate) {
-//                if (tokenField!.delegate is ACBTokenFieldController) == false {
-//                    tokenField!.tokenDelegate = tokenField!.delegate
-//                    tokenField!.delegate = self
-//                }
-//            }
-//        }
-//    }
     
     // # MARK: Forward Invocation methods
     
@@ -659,7 +631,7 @@ fileprivate class ACBTokenFieldController: NSObject, NSTokenFieldDelegate {
 
 
 fileprivate class ACBTokenFieldCell: NSTokenFieldCell {
-    fileprivate var shouldDisplayClearButton = false // J
+    fileprivate var shouldDisplayClearButton = true
     fileprivate var shouldDisplayLeftView = false
     fileprivate var padding: CGFloat = 21
     
