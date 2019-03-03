@@ -10,6 +10,8 @@ import Cocoa
 
 class PreferencesWindow: NSWindowController {
     
+    @IBOutlet var citiesTokenField: NSTokenField!
+    
     override var windowNibName: NSNib.Name? {
         return "PreferencesWindow"
     }
@@ -20,6 +22,13 @@ class PreferencesWindow: NSWindowController {
         self.window?.center()
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
+        
+        citiesTokenField.convertToACBTokenField()
+        populateAndConfigureCitiesList()
     }
     
+    func populateAndConfigureCitiesList() {
+        let cities: [String] = allTimezones.map { $0.city() }
+        citiesTokenField.defaultTokenKeywords = cities
+    }
 }

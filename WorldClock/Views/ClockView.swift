@@ -55,7 +55,7 @@ class ClockView: NSView {
         clockStack.orientation = .horizontal
         clockStack.alignment = .centerY
         clockStack.distribution = .equalSpacing
-        clockStack.spacing = 59
+        clockStack.spacing = 10
         clockStack.translatesAutoresizingMaskIntoConstraints = false
         
         // Pushing it out
