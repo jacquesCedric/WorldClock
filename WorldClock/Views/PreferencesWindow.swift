@@ -28,7 +28,7 @@ class PreferencesWindow: NSWindowController {
     }
     
     func populateAndConfigureCitiesList() {
-        let cities: [String] = allTimezones.map { $0.city() }
+        let cities: [String] = allTimezones.map { $0.city }
         citiesTokenField.defaultTokenKeywords = cities
     }
     

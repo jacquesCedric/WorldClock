@@ -15,14 +15,14 @@ var allTimezones: [CityTime] {
 struct CityTime {
     let timezoneID: String
     
-    func city() -> String {
+    var city: String {
         if let cityName = timezoneID.split(separator: "/").last {
             return cityName.replacingOccurrences(of: "_", with: " ")
         }
         return "Invalid timezone"
     }
     
-    func date() -> String {
+    var date: String {
         let df = DateFormatter()
         df.timeZone = TimeZone(identifier: timezoneID)
         
@@ -31,7 +31,7 @@ struct CityTime {
         return df.string(from: Date())
     }
     
-    func time() -> String {
+    var time: String {
         // Setup timezone
         let df = DateFormatter()
         df.timeZone = TimeZone(identifier: timezoneID)

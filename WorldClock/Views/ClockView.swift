@@ -29,7 +29,7 @@ class ClockView: NSView {
         thisCity = city
         
         // Interface elements
-        let cityLabel: NSTextField = NSTextField(labelWithString: city.city())
+        let cityLabel: NSTextField = NSTextField(labelWithString: city.city)
         // Clock size
         let size = NSRect(x: 0, y: 0, width: 340, height: 60)
         
@@ -82,7 +82,7 @@ class ClockView: NSView {
     }
     
     @objc func updateStrings() {
-        timeLabel.stringValue = thisCity.time()
-        dateLabel.stringValue = thisCity.date()
+        timeLabel.stringValue = thisCity.time
+        dateLabel.stringValue = thisCity.date
     }
 }
