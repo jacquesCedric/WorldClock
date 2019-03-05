@@ -42,13 +42,13 @@ class PreferencesWindow: NSWindowController {
         let cleanTags: [String] = rawTags.map{ ($0 as! ACBToken).name }
         
         // Consider checking tags to see if they're valid before saving them?
-        
         saveSettings(cities: cleanTags)
+        
+        self.close()
     }
     
     func loadPreferences() {
         let cities: [String] = loadSettings()
-        
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
     }
 }

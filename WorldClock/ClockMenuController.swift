@@ -8,9 +8,9 @@
 
 import Cocoa
 
-let cities = [allTimezones[0], allTimezones[3], allTimezones[100], allTimezones[40]]
-
 class ClockMenuController: NSObject {
+    
+    let cities = retrieveSavedCities()
 
     // MARK: GUI stuff
     @IBOutlet weak var statusMenu: NSMenu!

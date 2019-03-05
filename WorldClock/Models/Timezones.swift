@@ -41,3 +41,12 @@ struct CityTime {
         return df.string(from: Date())
     }
 }
+
+func findTimezoneFromCity(toFind: String) -> CityTime? {
+    return allTimezones.filter{ $0.city == toFind }.first
+}
+
+func retrieveSavedCities() -> [CityTime] {
+    let savedCities: [String] = loadSettings()
+    return savedCities.compactMap{ findTimezoneFromCity(toFind: $0) }
+}

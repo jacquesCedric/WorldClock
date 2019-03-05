@@ -70,11 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				C4B64856222E24AA00AF2CDC /* Settings.swift */,
-				C4FDF64A22240802005A05EF /* AppDelegate.swift */,
 				C4FDF658222410BE005A05EF /* ClockMenuController.swift */,
 				C4FDF689222B82F0005A05EF /* Models */,
 				C4FDF688222B82C4005A05EF /* Views */,
 				C4FDF64C22240804005A05EF /* Assets.xcassets */,
+				C4FDF64A22240802005A05EF /* AppDelegate.swift */,
 				C4FDF65122240804005A05EF /* Info.plist */,
 				C4FDF65222240804005A05EF /* WorldClock.entitlements */,
 				C4FDF687222B82A1005A05EF /* External */,

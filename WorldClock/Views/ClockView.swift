@@ -30,6 +30,7 @@ class ClockView: NSView {
         
         // Interface elements
         let cityLabel: NSTextField = NSTextField(labelWithString: city.city)
+        
         // Clock size
         let size = NSRect(x: 0, y: 0, width: 340, height: 60)
         
