@@ -25,6 +25,8 @@ class PreferencesWindow: NSWindowController {
         
         citiesTokenField.convertToACBTokenField()
         populateAndConfigureCitiesList()
+        
+        loadPreferences()
     }
     
     func populateAndConfigureCitiesList() {
@@ -37,8 +39,16 @@ class PreferencesWindow: NSWindowController {
         let rawTags = citiesTokenField.objectValue as! NSArray
 
         // Pull the names from the custom ACBTokens
-        let cleanTags = rawTags.map{ ($0 as! ACBToken).name }
-        print(cleanTags)
+        let cleanTags: [String] = rawTags.map{ ($0 as! ACBToken).name }
+        
+        // Consider checking tags to see if they're valid before saving them?
+        
+        saveSettings(cities: cleanTags)
     }
     
+    func loadPreferences() {
+        let cities: [String] = loadSettings()
+        
+        _ = cities.map{ citiesTokenField.addToken(name: $0) }
+    }
 }
