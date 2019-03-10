@@ -43,7 +43,7 @@ class PreferencesWindow: NSWindowController {
         
         // Consider checking tags to see if they're valid before saving them?
         saveSettings(cities: cleanTags)
-        
+        NotificationCenter.default.post(name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
         self.close()
     }
     

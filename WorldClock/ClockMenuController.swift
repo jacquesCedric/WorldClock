@@ -10,7 +10,8 @@ import Cocoa
 
 class ClockMenuController: NSObject {
     
-    let cities = retrieveSavedCities()
+    var cities: [CityTime] = []
+    var currentClocks: [NSMenuItem] = []
 
     // MARK: GUI stuff
     @IBOutlet weak var statusMenu: NSMenu!
@@ -23,8 +24,9 @@ class ClockMenuController: NSObject {
         statusItem.button?.title = "WorldClock"
         statusItem.menu = statusMenu
         addClocksToMenu()
-        
         preferencesWindow = PreferencesWindow()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
     }
     
     @IBAction func preferencesClicked(_ sender: NSMenuItem) {
@@ -36,6 +38,8 @@ class ClockMenuController: NSObject {
     }
     
     func addClocksToMenu() {
+        // Reverse the cities array so it matches preferences input order
+        cities = retrieveSavedCities().reversed()
         _ = cities.map{ addClock(city: $0) }
     }
     
@@ -45,6 +49,13 @@ class ClockMenuController: NSObject {
         
         let clock = NSMenuItem(title: "Clock", action: nil, keyEquivalent: "")
         clock.view = ClockView.init(city: city)
+        currentClocks.append(clock)
         statusMenu.insertItem(clock, at: 0)
+    }
+    
+    @objc func refresh() {
+        _ = currentClocks.map{ statusMenu.removeItem($0) }
+        currentClocks = []
+        addClocksToMenu()
     }
 }
