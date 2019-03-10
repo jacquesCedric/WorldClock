@@ -29,11 +29,12 @@ class ClockView: NSView {
         thisCity = city
         
         // Interface elements
-        let cityLabel: NSTextField = NSTextField(labelWithString: city.city)
+        cityLabel.stringValue = city.city
         
         // Clock size
         let size = NSRect(x: 0, y: 0, width: 340, height: 60)
         
+        // Styling
         cityLabel.font = NSFont.systemFont(ofSize: 23)
         dateLabel.font = NSFont.systemFont(ofSize: 13)
         timeLabel.font = NSFont.systemFont(ofSize: 51, weight: .light)
@@ -83,7 +84,10 @@ class ClockView: NSView {
     }
     
     @objc func updateStrings() {
+        let dateString = NSMutableAttributedString(attributedString: NSAttributedString(string: thisCity.date))
+        dateString.addAttribute(NSAttributedString.Key.foregroundColor, value: NSColor.red, range: NSRange(location: 0, length: 3))
+        
         timeLabel.stringValue = thisCity.time
-        dateLabel.stringValue = thisCity.date
+        dateLabel.attributedStringValue = dateString
     }
 }
