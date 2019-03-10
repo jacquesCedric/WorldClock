@@ -47,6 +47,7 @@ func findTimezoneFromCity(toFind: String) -> CityTime? {
 }
 
 func retrieveSavedCities() -> [CityTime] {
-    let savedCities: [String] = loadSettings()
+    let savedCities: [String] = loadCities()
     return savedCities.compactMap{ findTimezoneFromCity(toFind: $0) }
+
 }

@@ -7,25 +7,56 @@
 //
 
 import Foundation
+import AppKit
 
-func saveSettings(cities: [String]) {
-    // This function has been deprecated and should be replaced/updated
-    let savedCities = NSKeyedArchiver.archivedData(withRootObject: cities)
-    UserDefaults.standard.set(savedCities, forKey: "savedCities")
+// Saving and loading cities list
+func saveCities(cities: [String]) {
+    saveData(data: cities, key: "cities")
+}
+
+func loadCities() -> [String] {
+    guard let data = loadData(key: "cities", type: [String].self) else {
+        return []
+    }
+    
+    return data
 }
 
 
-func loadSettings() -> [String] {
-    guard let savedCities = UserDefaults.standard.object(forKey: "savedCities") as? NSData else {
+// Saving and loading accent color
+func saveAccentColor(color: NSColor) {
+    saveData(data: color, key: "accentColor")
+}
+
+func loadAccentColor() -> NSColor {
+    guard let data = loadData(key: "accentColor", type: NSColor.self) else {
+        return NSColor.red
+    }
+    
+    return data
+}
+
+
+
+// Saving and loading master functions.
+// Catch all load function
+func loadData<T>(key: String, type: T.Type) -> T? {
+    guard let savedData = UserDefaults.standard.object(forKey: key) as? NSData else {
         print("Could not retrieve saved cities")
-        return []
+        return nil
     }
     
-    // Deprecated method used below.
-    guard let cities = NSKeyedUnarchiver.unarchiveObject(with: savedCities as Data) as? [String] else {
-        print("Could not unarachive savedCities data!")
-        return []
+    guard let retrievedData = NSKeyedUnarchiver.unarchiveObject(with: savedData as Data) as? T else {
+        print("Could not unarachive cities data!")
+        return nil
     }
     
-    return cities
+    return retrievedData
+}
+
+
+// Catch all save function
+func saveData(data: Any, key: String) {
+    let savedData = NSKeyedArchiver.archivedData(withRootObject: data)
+    UserDefaults.standard.set(savedData, forKey: key)
 }

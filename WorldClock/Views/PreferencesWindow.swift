@@ -26,7 +26,7 @@ class PreferencesWindow: NSWindowController {
         citiesTokenField.convertToACBTokenField()
         populateAndConfigureCitiesList()
         
-        loadPreferences()
+        loadCitiesListFromPreferences()
     }
     
     func populateAndConfigureCitiesList() {
@@ -42,13 +42,13 @@ class PreferencesWindow: NSWindowController {
         let cleanTags: [String] = rawTags.map{ ($0 as! ACBToken).name }
         
         // Consider checking tags to see if they're valid before saving them?
-        saveSettings(cities: cleanTags)
+        saveCities(cities: cleanTags)
         NotificationCenter.default.post(name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
         self.close()
     }
     
-    func loadPreferences() {
-        let cities: [String] = loadSettings()
+    func loadCitiesListFromPreferences() {
+        let cities: [String] = loadCities()
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
     }
 }
