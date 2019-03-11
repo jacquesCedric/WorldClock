@@ -54,6 +54,16 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRJ-CZ-w5J">
+                        <rect key="frame" x="112" y="196" width="171" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="UoP-NG-rAA">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="12 hour" width="82"/>
+                                <segment label="24 hour" width="82" selected="YES" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VmO-QL-ILA">
                         <rect key="frame" x="12" y="180" width="440" height="5"/>
                     </box>
@@ -118,16 +128,6 @@
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-EO-IyK">
                         <rect key="frame" x="12" y="59" width="440" height="5"/>
                     </box>
-                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRJ-CZ-w5J">
-                        <rect key="frame" x="112" y="196" width="171" height="24"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="UoP-NG-rAA">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="12 hour" width="82"/>
-                                <segment label="24 hour" width="82" selected="YES" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="925-v3-xn6" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="26o-pH-blL"/>

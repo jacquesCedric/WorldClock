@@ -59,23 +59,23 @@ class PreferencesWindow: NSWindowController {
         let cleanTags: [String] = rawTags.map{ ($0 as! ACBToken).name }
         
         // Consider checking tags to see if they're valid before saving them?
-        saveCitiesToPreferences(cities: cleanTags)
+        Settings.saveCitiesToPreferences(cities: cleanTags)
         NotificationCenter.default.post(name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
     }
     
     func loadCities() {
-        let cities: [String] = loadCitiesFromPreferences()
+        let cities: [String] = Settings.loadCitiesFromPreferences()
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
     }
     
     // MARK: Accent Preferences
     func saveAccentColor() {
-        saveAccentColorToPreferences(color: accentColorWell.color)
+        Settings.saveAccentColorToPreferences(color: accentColorWell.color)
         NotificationCenter.default.post(name: Notification.Name("WorldClockAccentColorUpdated"), object: nil)
     }
     
     func loadAccentColor() {
-        accentColorWell.color = loadAccentColorFromPreferences()
+        accentColorWell.color = Settings.loadAccentColorFromPreferences()
     }
     
 }
