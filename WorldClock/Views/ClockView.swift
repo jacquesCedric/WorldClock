@@ -85,10 +85,23 @@ class ClockView: NSView {
     
     @objc func updateStrings() {
         let accentColor = Settings.loadAccentColorFromPreferences()
+        
+        // Make sure our accent color highlights the day of the week
         let dateString = NSMutableAttributedString(attributedString: NSAttributedString(string: thisCity.date))
         dateString.addAttribute(NSAttributedString.Key.foregroundColor, value: accentColor, range: NSRange(location: 0, length: 3))
         
-        timeLabel.stringValue = thisCity.time
+        // Trim any leading 0's
+        let baseTimeString = NSAttributedString.init(string: thisCity.time)
+        let timeAttributedString = baseTimeString.string.hasPrefix("0") ? baseTimeString.attributedSubstring(from: NSRange(location: 1, length: baseTimeString.length - 1)) : baseTimeString
+        let timeString = NSMutableAttributedString(attributedString: timeAttributedString)
+        
+        // If some maniac is using 12-hour format, make the am/pm not-ridiculous
+        if (timeString.string.contains(Character("m"))) {
+            let smallFont: NSFont = NSFont.systemFont(ofSize: 12)
+            timeString.addAttribute(NSAttributedString.Key.font, value: smallFont, range: NSRange(location: timeString.length - 2, length: 2))
+        }
+        
+        timeLabel.attributedStringValue = timeString
         dateLabel.attributedStringValue = dateString
     }
 }
