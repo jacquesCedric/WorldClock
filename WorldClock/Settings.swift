@@ -37,6 +37,20 @@ func loadAccentColor() -> NSColor {
 }
 
 
+// Saving and loading timeFormat
+func saveTimeFormat(enabled: Bool) {
+    saveData(data: enabled, key: "twentyFourTimeFormat")
+}
+
+func loadTimeFormat() -> Bool {
+    guard let data = loadData(key: "twentyFourTimeFormat", type: Bool.self) else {
+        return true
+    }
+    
+    return data
+}
+
+
 
 // Saving and loading master functions.
 // Catch all load function

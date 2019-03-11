@@ -18,15 +18,19 @@ class PreferencesWindow: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-
-        self.window?.center()
-        self.window?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
         
         citiesTokenField.convertToACBTokenField()
         populateAndConfigureCitiesList()
         
         loadCitiesListFromPreferences()
+    }
+    
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        self.window?.center()
+        self.window?.makeKeyAndOrderFront(nil)
+        self.window?.orderedIndex = 0
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func populateAndConfigureCitiesList() {
