@@ -16,7 +16,7 @@
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="464" height="411"/>
+            <rect key="contentRect" x="196" y="240" width="464" height="370"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="464" height="370"/>
@@ -103,21 +103,24 @@
                             <constraint firstAttribute="width" constant="120" id="VNk-4g-dtT"/>
                             <constraint firstAttribute="height" constant="21" id="VYi-Mr-0EV"/>
                         </constraints>
-                        <popUpButtonCell key="cell" type="push" title="App Name" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="w8F-xl-U7d" id="Jc1-35-FOM">
+                        <popUpButtonCell key="cell" type="push" title="System Time" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="XYs-FV-gyJ" id="Jc1-35-FOM">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="7Jf-hS-HAa">
                                 <items>
-                                    <menuItem title="App Name" state="on" id="w8F-xl-U7d"/>
                                     <menuItem title="System Time" id="XYs-FV-gyJ"/>
+                                    <menuItem title="App Name" state="on" id="w8F-xl-U7d"/>
+                                    <menuItem title="🕙 Icon" id="sZA-hu-4DM">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem title="Custom" id="19q-T9-mEe"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aLj-uo-Y8k">
-                        <rect key="frame" x="278" y="13" width="172" height="32"/>
-                        <buttonCell key="cell" type="push" title="Save &amp; Close Window" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nLi-dF-nza">
+                        <rect key="frame" x="224" y="13" width="226" height="32"/>
+                        <buttonCell key="cell" type="push" title="Save Settings &amp; Close Window" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nLi-dF-nza">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -170,7 +173,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-65" y="155.5"/>
+            <point key="canvasLocation" x="-65" y="135"/>
         </window>
     </objects>
 </document>

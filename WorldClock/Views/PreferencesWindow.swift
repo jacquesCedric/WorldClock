@@ -39,20 +39,25 @@ class PreferencesWindow: NSWindowController {
     }
     
     @IBAction func savePreferences(_ sender: Any) {
+        saveCities()
+        self.close()
+    }
+    
+    // Save city list to
+    func saveCities() {
         // Cast the tags to NSArray, as otherwise __NSArrayI is returned
         let rawTags = citiesTokenField.objectValue as! NSArray
-
+        
         // Pull the names from the custom ACBTokens
         let cleanTags: [String] = rawTags.map{ ($0 as! ACBToken).name }
         
         // Consider checking tags to see if they're valid before saving them?
-        saveCities(cities: cleanTags)
+        saveCitiesToPreferences(cities: cleanTags)
         NotificationCenter.default.post(name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
-        self.close()
     }
     
     func loadCitiesListFromPreferences() {
-        let cities: [String] = loadCities()
+        let cities: [String] = loadCitiesFromPreferences()
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
     }
 }

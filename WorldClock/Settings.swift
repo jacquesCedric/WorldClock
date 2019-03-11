@@ -10,11 +10,11 @@ import Foundation
 import AppKit
 
 // Saving and loading cities list
-func saveCities(cities: [String]) {
+func saveCitiesToPreferences(cities: [String]) {
     saveData(data: cities, key: "cities")
 }
 
-func loadCities() -> [String] {
+func loadCitiesFromPreferences() -> [String] {
     guard let data = loadData(key: "cities", type: [String].self) else {
         return []
     }
@@ -24,11 +24,11 @@ func loadCities() -> [String] {
 
 
 // Saving and loading accent color
-func saveAccentColor(color: NSColor) {
+func saveAccentColorToPreferences(color: NSColor) {
     saveData(data: color, key: "accentColor")
 }
 
-func loadAccentColor() -> NSColor {
+func loadAccentColorFromPreferences() -> NSColor {
     guard let data = loadData(key: "accentColor", type: NSColor.self) else {
         return NSColor.red
     }
@@ -38,11 +38,11 @@ func loadAccentColor() -> NSColor {
 
 
 // Saving and loading timeFormat
-func saveTimeFormat(enabled: Bool) {
+func saveTimeFormatToPreferences(enabled: Bool) {
     saveData(data: enabled, key: "twentyFourTimeFormat")
 }
 
-func loadTimeFormat() -> Bool {
+func loadTimeFormatFromReferences() -> Bool {
     guard let data = loadData(key: "twentyFourTimeFormat", type: Bool.self) else {
         return true
     }
@@ -54,7 +54,7 @@ func loadTimeFormat() -> Bool {
 
 // Saving and loading master functions.
 // Catch all load function
-func loadData<T>(key: String, type: T.Type) -> T? {
+fileprivate func loadData<T>(key: String, type: T.Type) -> T? {
     guard let savedData = UserDefaults.standard.object(forKey: key) as? NSData else {
         print("Could not retrieve saved cities")
         return nil
@@ -70,7 +70,7 @@ func loadData<T>(key: String, type: T.Type) -> T? {
 
 
 // Catch all save function
-func saveData(data: Any, key: String) {
+fileprivate func saveData(data: Any, key: String) {
     let savedData = NSKeyedArchiver.archivedData(withRootObject: data)
     UserDefaults.standard.set(savedData, forKey: key)
 }
