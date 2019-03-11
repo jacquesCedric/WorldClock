@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="accentColorWell" destination="YuL-aW-YeG" id="W6O-gA-chy"/>
                 <outlet property="citiesTokenField" destination="i3B-Mj-IDi" id="C7X-4l-FgG"/>
+                <outlet property="timeFormatSegmentedControl" destination="CRJ-CZ-w5J" id="ADR-ze-LUC"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -17,7 +18,7 @@
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="464" height="370"/>
+            <rect key="contentRect" x="196" y="240" width="464" height="346"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="464" height="346"/>

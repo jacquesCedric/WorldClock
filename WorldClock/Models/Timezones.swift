@@ -37,7 +37,7 @@ struct CityTime {
         df.timeZone = TimeZone(identifier: timezoneID)
         
         // Setup time string
-        df.dateFormat = "HH:mm"
+        df.dateFormat = Settings.loadTimeFormatFromPreferences().rawValue
         return df.string(from: Date())
     }
 }

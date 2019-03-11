@@ -11,6 +11,7 @@ import Cocoa
 class PreferencesWindow: NSWindowController {
     
     @IBOutlet var citiesTokenField: NSTokenField!
+    @IBOutlet var timeFormatSegmentedControl: NSSegmentedControl!
     @IBOutlet var accentColorWell: NSColorWell!
     
     override var windowNibName: NSNib.Name? {
@@ -24,6 +25,7 @@ class PreferencesWindow: NSWindowController {
         populateTokensWithCitiesListForACBTokenField()
         
         loadCities()
+        loadTimeFormat()
         loadAccentColor()
     }
     
@@ -44,6 +46,7 @@ class PreferencesWindow: NSWindowController {
     
     @IBAction func savePreferences(_ sender: Any) {
         saveCities()
+        saveTimeFormat()
         saveAccentColor()
         self.close()
     }
@@ -66,6 +69,17 @@ class PreferencesWindow: NSWindowController {
     func loadCities() {
         let cities: [String] = Settings.loadCitiesFromPreferences()
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
+    }
+    
+    // MARK: Time format Preferences
+    func saveTimeFormat() {
+        let segmentValue = timeFormatSegmentedControl.selectedSegment
+        let formatPref = segmentValue == 0 ? Settings.TimeHourFormat.twelveHour : Settings.TimeHourFormat.twentyFourHour
+        Settings.saveTimeFormatToPreferences(hourformat: formatPref.rawValue)
+    }
+    
+    func loadTimeFormat() {
+        timeFormatSegmentedControl.selectedSegment = Settings.loadTimeFormatFromPreferences() == Settings.TimeHourFormat.twelveHour ? 0 : 1
     }
     
     // MARK: Accent Preferences

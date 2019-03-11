@@ -2,6 +2,8 @@
 //  Settings.swift
 //  WorldClock
 //
+//  This class handles all the ins and outs of settings
+//
 //  Created by Jacob Gold on 5/3/19.
 //  Copyright © 2019 Jacob Gold. All rights reserved.
 //
@@ -10,6 +12,11 @@ import Foundation
 import AppKit
 
 class Settings {
+    enum TimeHourFormat: String {
+        case twelveHour = "hh:mma"
+        case twentyFourHour = "HH:mm"
+    }
+    
     // Saving and loading cities list
     static func saveCitiesToPreferences(cities: [String]) {
         saveData(data: cities, key: "cities")
@@ -21,6 +28,20 @@ class Settings {
         }
         
         return data
+    }
+    
+    
+    // Saving and loading timeFormat
+    static func saveTimeFormatToPreferences(hourformat: TimeHourFormat.RawValue) {
+        saveData(data: hourformat, key: "twentyFourTimeFormat")
+    }
+    
+    static func loadTimeFormatFromPreferences() -> TimeHourFormat {
+        guard let data = loadData(key: "twentyFourTimeFormat", type: TimeHourFormat.RawValue.self) else {
+            return TimeHourFormat.twentyFourHour
+        }
+        
+        return Settings.TimeHourFormat(rawValue: data)!
     }
 
 
@@ -37,38 +58,22 @@ class Settings {
         return data
     }
 
-
-    // Saving and loading timeFormat
-    static func saveTimeFormatToPreferences(enabled: Bool) {
-        saveData(data: enabled, key: "twentyFourTimeFormat")
-    }
-
-    static func loadTimeFormatFromReferences() -> Bool {
-        guard let data = loadData(key: "twentyFourTimeFormat", type: Bool.self) else {
-            return true
-        }
-        
-        return data
-    }
-
-
+    
 
     // Saving and loading master functions.
-    // Catch all load function
     fileprivate static func loadData<T>(key: String, type: T.Type) -> T? {
         guard let savedData = UserDefaults.standard.object(forKey: key) as? NSData else {
-            print("Could not retrieve saved cities")
+            print("Could not retrieve saved data: \(key)")
             return nil
         }
         
         guard let retrievedData = NSKeyedUnarchiver.unarchiveObject(with: savedData as Data) as? T else {
-            print("Could not unarachive cities data!")
+            print("Could not unarachive: \(key) data!")
             return nil
         }
         
         return retrievedData
     }
-
 
     // Catch all save function
     fileprivate static func saveData(data: Any, key: String) {
