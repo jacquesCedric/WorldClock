@@ -11,6 +11,7 @@ import Cocoa
 class PreferencesWindow: NSWindowController {
     
     @IBOutlet var citiesTokenField: NSTokenField!
+    @IBOutlet var accentColorWell: NSColorWell!
     
     override var windowNibName: NSNib.Name? {
         return "PreferencesWindow"
@@ -20,9 +21,10 @@ class PreferencesWindow: NSWindowController {
         super.windowDidLoad()
         
         citiesTokenField.convertToACBTokenField()
-        populateAndConfigureCitiesList()
+        populateTokensWithCitiesListForACBTokenField()
         
-        loadCitiesListFromPreferences()
+        loadCities()
+        loadAccentColor()
     }
     
     override func showWindow(_ sender: Any?) {
@@ -33,16 +35,21 @@ class PreferencesWindow: NSWindowController {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    func populateAndConfigureCitiesList() {
+    
+    
+    func populateTokensWithCitiesListForACBTokenField() {
         let cities: [String] = allTimezones.map { $0.city }
         citiesTokenField.defaultTokenKeywords = cities
     }
     
     @IBAction func savePreferences(_ sender: Any) {
         saveCities()
+        saveAccentColor()
         self.close()
     }
     
+    
+    // MARK: Cities Preferences
     // Save city list to
     func saveCities() {
         // Cast the tags to NSArray, as otherwise __NSArrayI is returned
@@ -56,8 +63,19 @@ class PreferencesWindow: NSWindowController {
         NotificationCenter.default.post(name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
     }
     
-    func loadCitiesListFromPreferences() {
+    func loadCities() {
         let cities: [String] = loadCitiesFromPreferences()
         _ = cities.map{ citiesTokenField.addToken(name: $0) }
     }
+    
+    // MARK: Accent Preferences
+    func saveAccentColor() {
+        saveAccentColorToPreferences(color: accentColorWell.color)
+        NotificationCenter.default.post(name: Notification.Name("WorldClockAccentColorUpdated"), object: nil)
+    }
+    
+    func loadAccentColor() {
+        accentColorWell.color = loadAccentColorFromPreferences()
+    }
+    
 }

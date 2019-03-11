@@ -84,8 +84,9 @@ class ClockView: NSView {
     }
     
     @objc func updateStrings() {
+        let accentColor = loadAccentColorFromPreferences()
         let dateString = NSMutableAttributedString(attributedString: NSAttributedString(string: thisCity.date))
-        dateString.addAttribute(NSAttributedString.Key.foregroundColor, value: NSColor.red, range: NSRange(location: 0, length: 3))
+        dateString.addAttribute(NSAttributedString.Key.foregroundColor, value: accentColor, range: NSRange(location: 0, length: 3))
         
         timeLabel.stringValue = thisCity.time
         dateLabel.attributedStringValue = dateString

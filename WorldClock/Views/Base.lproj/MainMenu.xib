@@ -21,8 +21,7 @@
         <menu id="QDM-iq-oVr">
             <items>
                 <menuItem isSeparatorItem="YES" id="qMW-Av-6yX"/>
-                <menuItem title="Preferences" id="hVl-Zs-pav">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Preferences" keyEquivalent="," id="hVl-Zs-pav">
                     <connections>
                         <action selector="preferencesClicked:" target="SbY-SG-tTZ" id="Xcm-qX-NWe"/>
                     </connections>

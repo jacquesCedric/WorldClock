@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindow" customModule="WorldClock" customModuleProvider="target">
             <connections>
+                <outlet property="accentColorWell" destination="YuL-aW-YeG" id="W6O-gA-chy"/>
                 <outlet property="citiesTokenField" destination="i3B-Mj-IDi" id="C7X-4l-FgG"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -19,11 +20,11 @@
             <rect key="contentRect" x="196" y="240" width="464" height="370"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="464" height="370"/>
+                <rect key="frame" x="0.0" y="0.0" width="464" height="346"/>
                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                 <subviews>
                     <tokenField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3B-Mj-IDi">
-                        <rect key="frame" x="114" y="282" width="330" height="68"/>
+                        <rect key="frame" x="114" y="258" width="330" height="68"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="330" id="EOU-Nd-HlA"/>
                             <constraint firstAttribute="height" constant="68" id="rwL-jn-8u7"/>
@@ -35,7 +36,7 @@
                         </tokenFieldCell>
                     </tokenField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iBP-gh-dDo">
-                        <rect key="frame" x="66" y="333" width="42" height="17"/>
+                        <rect key="frame" x="66" y="309" width="42" height="17"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Cities:" id="vJY-Hk-hP1">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -43,30 +44,16 @@
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-SS-Q7L">
-                        <rect key="frame" x="12" y="259" width="440" height="5"/>
+                        <rect key="frame" x="12" y="235" width="440" height="5"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qS2-vf-UMg">
-                        <rect key="frame" x="23" y="224" width="85" height="17"/>
+                        <rect key="frame" x="23" y="200" width="85" height="17"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Time Format:" id="Vkk-wh-gsO">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vyh-9F-Dxb">
-                        <rect key="frame" x="113" y="224" width="70" height="18"/>
-                        <buttonCell key="cell" type="radio" title="24 hour" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="glm-iF-97D">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e8T-Xb-0v6">
-                        <rect key="frame" x="113" y="202" width="67" height="18"/>
-                        <buttonCell key="cell" type="radio" title="12 hour" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="EXz-go-vQt">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VmO-QL-ILA">
                         <rect key="frame" x="12" y="180" width="440" height="5"/>
                     </box>
@@ -103,13 +90,13 @@
                             <constraint firstAttribute="width" constant="120" id="VNk-4g-dtT"/>
                             <constraint firstAttribute="height" constant="21" id="VYi-Mr-0EV"/>
                         </constraints>
-                        <popUpButtonCell key="cell" type="push" title="System Time" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="XYs-FV-gyJ" id="Jc1-35-FOM">
+                        <popUpButtonCell key="cell" type="push" title="System Time" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="XYs-FV-gyJ" id="Jc1-35-FOM">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="7Jf-hS-HAa">
                                 <items>
-                                    <menuItem title="System Time" id="XYs-FV-gyJ"/>
-                                    <menuItem title="App Name" state="on" id="w8F-xl-U7d"/>
+                                    <menuItem title="System Time" state="on" id="XYs-FV-gyJ"/>
+                                    <menuItem title="App Name" id="w8F-xl-U7d"/>
                                     <menuItem title="🕙 Icon" id="sZA-hu-4DM">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
@@ -131,11 +118,20 @@
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-EO-IyK">
                         <rect key="frame" x="12" y="59" width="440" height="5"/>
                     </box>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRJ-CZ-w5J">
+                        <rect key="frame" x="112" y="196" width="171" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="UoP-NG-rAA">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="12 hour" width="82"/>
+                                <segment label="24 hour" width="82" selected="YES" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="925-v3-xn6" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="26o-pH-blL"/>
                     <constraint firstItem="qS2-vf-UMg" firstAttribute="top" secondItem="IxN-SS-Q7L" secondAttribute="bottom" constant="20" id="3Ft-GY-Uwe"/>
-                    <constraint firstItem="e8T-Xb-0v6" firstAttribute="top" secondItem="Vyh-9F-Dxb" secondAttribute="bottom" constant="6" symbolic="YES" id="5LD-JK-6wR"/>
                     <constraint firstItem="iBP-gh-dDo" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="68" id="6ZW-Ij-M5o"/>
                     <constraint firstItem="qS2-vf-UMg" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="7MF-UF-tKQ"/>
                     <constraint firstAttribute="trailing" secondItem="Yhb-13-p8m" secondAttribute="trailing" constant="12" symbolic="YES" id="7yN-6I-PK6"/>
@@ -144,20 +140,19 @@
                     <constraint firstItem="CYZ-EO-IyK" firstAttribute="top" secondItem="iFo-uW-j5N" secondAttribute="bottom" constant="20" id="Ac6-J7-jog"/>
                     <constraint firstItem="yjj-2E-RcH" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="DBq-c3-Uv9"/>
                     <constraint firstAttribute="trailing" secondItem="VmO-QL-ILA" secondAttribute="trailing" constant="12" symbolic="YES" id="ECI-9T-nO1"/>
-                    <constraint firstItem="Vyh-9F-Dxb" firstAttribute="top" secondItem="IxN-SS-Q7L" secondAttribute="bottom" constant="20" id="EhR-QM-oua"/>
-                    <constraint firstItem="VmO-QL-ILA" firstAttribute="top" secondItem="e8T-Xb-0v6" secondAttribute="bottom" constant="20" id="Fij-do-NZW"/>
                     <constraint firstAttribute="bottom" secondItem="aLj-uo-Y8k" secondAttribute="bottom" constant="20" symbolic="YES" id="JX2-Ru-3F1"/>
                     <constraint firstItem="Yhb-13-p8m" firstAttribute="top" secondItem="YuL-aW-YeG" secondAttribute="bottom" constant="20" id="K1e-2p-9IT"/>
                     <constraint firstItem="i3B-Mj-IDi" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="Ld6-Vb-K1t"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="12" symbolic="YES" id="OAw-SU-vW4"/>
                     <constraint firstItem="YuL-aW-YeG" firstAttribute="centerY" secondItem="925-v3-xn6" secondAttribute="centerY" id="Pyr-Gu-qar"/>
+                    <constraint firstItem="VmO-QL-ILA" firstAttribute="top" secondItem="CRJ-CZ-w5J" secondAttribute="bottom" constant="15" id="RTY-rr-6vZ"/>
                     <constraint firstItem="iFo-uW-j5N" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="U7J-73-tQo"/>
-                    <constraint firstItem="Vyh-9F-Dxb" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="Uq6-9w-Xt7"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="top" secondItem="i3B-Mj-IDi" secondAttribute="bottom" constant="20" id="Wsz-6K-RYq"/>
+                    <constraint firstItem="CRJ-CZ-w5J" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="XYy-7W-Sdg"/>
                     <constraint firstAttribute="trailing" secondItem="IxN-SS-Q7L" secondAttribute="trailing" constant="12" symbolic="YES" id="bKE-RT-S6X"/>
                     <constraint firstItem="yjj-2E-RcH" firstAttribute="top" secondItem="Yhb-13-p8m" secondAttribute="bottom" constant="20" id="bio-kE-eQu"/>
                     <constraint firstItem="iFo-uW-j5N" firstAttribute="centerY" secondItem="yjj-2E-RcH" secondAttribute="centerY" id="bmS-Qm-JVD"/>
-                    <constraint firstItem="e8T-Xb-0v6" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="f4C-uM-DyE"/>
+                    <constraint firstItem="CRJ-CZ-w5J" firstAttribute="centerY" secondItem="qS2-vf-UMg" secondAttribute="centerY" id="e8d-uT-K6U"/>
                     <constraint firstItem="YuL-aW-YeG" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="fp0-n1-M47"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="top" secondItem="i3B-Mj-IDi" secondAttribute="bottom" constant="20" id="g9y-wY-IIe"/>
                     <constraint firstAttribute="trailing" secondItem="CYZ-EO-IyK" secondAttribute="trailing" constant="12" symbolic="YES" id="hw1-6c-wze"/>

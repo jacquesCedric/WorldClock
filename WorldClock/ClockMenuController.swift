@@ -27,6 +27,7 @@ class ClockMenuController: NSObject {
         preferencesWindow = PreferencesWindow()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: Notification.Name("WorldClockAccentColorUpdated"), object: nil)
     }
     
     @IBAction func preferencesClicked(_ sender: NSMenuItem) {
