@@ -13,6 +13,7 @@ class PreferencesWindow: NSWindowController {
     @IBOutlet var citiesTokenField: NSTokenField!
     @IBOutlet var timeFormatSegmentedControl: NSSegmentedControl!
     @IBOutlet var accentComboColorWell: ComboColorWell!
+    @IBOutlet var menuTextPopUpButton: NSPopUpButton!
     
     override var windowNibName: NSNib.Name? {
         return "PreferencesWindow"
@@ -27,6 +28,7 @@ class PreferencesWindow: NSWindowController {
         loadCities()
         loadTimeFormat()
         loadAccentColor()
+        loadMenuTitleStyle()
     }
     
     override func showWindow(_ sender: Any?) {
@@ -48,6 +50,7 @@ class PreferencesWindow: NSWindowController {
         saveCities()
         saveTimeFormat()
         saveAccentColor()
+        saveMenuTitleStyle()
         self.close()
     }
     
@@ -90,6 +93,16 @@ class PreferencesWindow: NSWindowController {
     
     func loadAccentColor() {
         accentComboColorWell.color = Settings.loadAccentColorFromPreferences()
+    }
+    
+    // MARK: Menu Title Preferences
+    func saveMenuTitleStyle() {
+        Settings.saveMenuTitleDisplayType(menuTitle: menuTextPopUpButton.indexOfSelectedItem)
+        NotificationCenter.default.post(name: Notification.Name("WorldClockAccentMenuTitleStyleUpdated"), object: nil)
+    }
+    
+    func loadMenuTitleStyle() {
+        menuTextPopUpButton.selectItem(at: Settings.loadMenuTitleDisplayType().rawValue)
     }
     
 }

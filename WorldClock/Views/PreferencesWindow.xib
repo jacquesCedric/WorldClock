@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="accentComboColorWell" destination="Swv-p9-Yiy" id="7OH-Uf-lNY"/>
                 <outlet property="citiesTokenField" destination="i3B-Mj-IDi" id="C7X-4l-FgG"/>
+                <outlet property="menuTextPopUpButton" destination="iFo-uW-j5N" id="2YM-sh-UWU"/>
                 <outlet property="timeFormatSegmentedControl" destination="CRJ-CZ-w5J" id="ADR-ze-LUC"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -100,7 +101,7 @@
                                 <items>
                                     <menuItem title="System Time" state="on" id="XYs-FV-gyJ"/>
                                     <menuItem title="App Name" id="w8F-xl-U7d"/>
-                                    <menuItem title="Icon 🕙" id="sZA-hu-4DM">
+                                    <menuItem title="Icon" id="sZA-hu-4DM">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>

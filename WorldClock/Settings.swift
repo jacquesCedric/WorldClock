@@ -17,6 +17,12 @@ class Settings {
         case twentyFourHour = "HH:mm"
     }
     
+    enum MenuTitleDisplayType: Int {
+        case systemTime = 0
+        case appName
+        case icon
+    }
+    
     // Saving and loading cities list
     static func saveCitiesToPreferences(cities: [String]) {
         saveData(data: cities, key: "cities")
@@ -56,6 +62,19 @@ class Settings {
         }
         
         return data
+    }
+    
+    // Sacving and loading Menu Title
+    static func saveMenuTitleDisplayType(menuTitle: MenuTitleDisplayType.RawValue) {
+        saveData(data: menuTitle, key: "menuTitleDisplayType")
+    }
+    
+    static func loadMenuTitleDisplayType() -> MenuTitleDisplayType {
+        guard let data = loadData(key: "menuTitleDisplayType", type: MenuTitleDisplayType.RawValue.self) else {
+            return MenuTitleDisplayType.systemTime
+        }
+        
+        return Settings.MenuTitleDisplayType(rawValue: data)!
     }
 
     
