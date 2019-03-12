@@ -21,13 +21,14 @@ class ClockMenuController: NSObject {
     var preferencesWindow: PreferencesWindow!
 
     override func awakeFromNib() {
-        statusItem.button?.title = "WorldClock"
+        setMenuTitle()
         statusItem.menu = statusMenu
         addClocksToMenu()
         preferencesWindow = PreferencesWindow()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: Notification.Name("WorldClockCitiesListUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: Notification.Name("WorldClockAccentColorUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setMenuTitle), name: Notification.Name("WorldClockMenuTitleStyleUpdated"), object: nil)
     }
     
     @IBAction func preferencesClicked(_ sender: NSMenuItem) {
@@ -58,5 +59,18 @@ class ClockMenuController: NSObject {
         _ = currentClocks.map{ statusMenu.removeItem($0) }
         currentClocks = []
         addClocksToMenu()
+    }
+    
+    @objc func setMenuTitle() {
+        let menuStyle = Settings.loadMenuTitleDisplayType()
+        
+        switch menuStyle {
+        case .systemTime:
+            statusItem.button?.title = "System Time"
+        case .appName:
+            statusItem.button?.title = "WorldClock"
+        case .icon:
+            statusItem.button?.title = "🕙"
+        }
     }
 }

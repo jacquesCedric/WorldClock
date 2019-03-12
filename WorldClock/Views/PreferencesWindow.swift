@@ -98,7 +98,7 @@ class PreferencesWindow: NSWindowController {
     // MARK: Menu Title Preferences
     func saveMenuTitleStyle() {
         Settings.saveMenuTitleDisplayType(menuTitle: menuTextPopUpButton.indexOfSelectedItem)
-        NotificationCenter.default.post(name: Notification.Name("WorldClockAccentMenuTitleStyleUpdated"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("WorldClockMenuTitleStyleUpdated"), object: nil)
     }
     
     func loadMenuTitleStyle() {
