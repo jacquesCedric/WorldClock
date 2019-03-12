@@ -77,7 +77,7 @@
 				C4FDF64A22240802005A05EF /* AppDelegate.swift */,
 				C4FDF65122240804005A05EF /* Info.plist */,
 				C4FDF65222240804005A05EF /* WorldClock.entitlements */,
-				C4FDF687222B82A1005A05EF /* External */,
+				C4FDF687222B82A1005A05EF /* Custom */,
 			);
 			path = WorldClock;
 			sourceTree = "<group>";
@@ -92,12 +92,12 @@
 			path = ACBTokenField;
 			sourceTree = "<group>";
 		};
-		C4FDF687222B82A1005A05EF /* External */ = {
+		C4FDF687222B82A1005A05EF /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 				C4FDF680222B8282005A05EF /* ACBTokenField */,
 			);
-			path = External;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		C4FDF688222B82C4005A05EF /* Views */ = {

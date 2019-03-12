@@ -60,7 +60,7 @@ extension NSTokenField {
         get { return associated(key: &Keys.shouldEnableTokenMenu) { false }! }
         set { associate(key: &Keys.shouldEnableTokenMenu, value: newValue)
             if let _ = self.cell as? ACBTokenFieldCell {
-                self.setNeedsDisplay()
+                self.needsDisplay = true
             }
         }
     }
@@ -84,7 +84,7 @@ extension NSTokenField {
                     newView.frame = CGRect(x: 0, y: 0, width: 21, height: 21)
                     self.addSubview(newView)
                 }
-                self.setNeedsDisplay()
+                self.needsDisplay = true
             }
         }
     }
@@ -94,7 +94,7 @@ extension NSTokenField {
         set { associate(key: &Keys.shouldDisplayClearButton, value: newValue)
             if let cell = self.cell as? ACBTokenFieldCell {
                 cell.shouldDisplayClearButton = newValue
-                self.setNeedsDisplay()
+                self.needsDisplay = true
             }
             self.handleClearButton()
         }
@@ -289,7 +289,7 @@ extension NSTokenField {
         self.objectValue = currentTokens
         
         if let fieldEditor = self.currentEditor() {
-            fieldEditor.selectedRange = NSMakeRange(fieldEditor.string.count ?? 0, 0)
+            fieldEditor.selectedRange = NSMakeRange(fieldEditor.string.count, 0)
         }
     }
     

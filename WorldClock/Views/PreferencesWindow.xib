@@ -108,10 +108,9 @@
                                 <items>
                                     <menuItem title="System Time" state="on" id="XYs-FV-gyJ"/>
                                     <menuItem title="App Name" id="w8F-xl-U7d"/>
-                                    <menuItem title="🕙 Icon" id="sZA-hu-4DM">
+                                    <menuItem title="Icon 🕙" id="sZA-hu-4DM">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="Custom" id="19q-T9-mEe"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
