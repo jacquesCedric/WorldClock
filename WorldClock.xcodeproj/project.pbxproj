@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C47E7C342237D6CC00FC3655 /* ComboColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E7C332237D6CC00FC3655 /* ComboColorWell.swift */; };
 		C4B64857222E24AA00AF2CDC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B64856222E24AA00AF2CDC /* Settings.swift */; };
 		C4FDF64B22240802005A05EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDF64A22240802005A05EF /* AppDelegate.swift */; };
 		C4FDF64D22240804005A05EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FDF64C22240804005A05EF /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C47E7C332237D6CC00FC3655 /* ComboColorWell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboColorWell.swift; sourceTree = "<group>"; };
 		C4B64856222E24AA00AF2CDC /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C4FDF64722240802005A05EF /* WorldClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FDF64A22240802005A05EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C47E7C322237D6AB00FC3655 /* ComboColorWell */ = {
+			isa = PBXGroup;
+			children = (
+				C47E7C332237D6CC00FC3655 /* ComboColorWell.swift */,
+			);
+			path = ComboColorWell;
+			sourceTree = "<group>";
+		};
 		C4FDF63E22240802005A05EF = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		C4FDF687222B82A1005A05EF /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				C47E7C322237D6AB00FC3655 /* ComboColorWell */,
 				C4FDF680222B8282005A05EF /* ACBTokenField */,
 			);
 			path = Custom;
@@ -192,6 +203,7 @@
 			files = (
 				C4FDF68F222B8595005A05EF /* ACBToken.swift in Sources */,
 				C4FDF64B22240802005A05EF /* AppDelegate.swift in Sources */,
+				C47E7C342237D6CC00FC3655 /* ComboColorWell.swift in Sources */,
 				C4FDF67E222AA064005A05EF /* PreferencesWindow.swift in Sources */,
 				C4FDF65D22257222005A05EF /* ClockView.swift in Sources */,
 				C4FDF659222410BE005A05EF /* ClockMenuController.swift in Sources */,

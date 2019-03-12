@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindow" customModule="WorldClock" customModuleProvider="target">
             <connections>
-                <outlet property="accentColorWell" destination="YuL-aW-YeG" id="W6O-gA-chy"/>
+                <outlet property="accentComboColorWell" destination="Swv-p9-Yiy" id="7OH-Uf-lNY"/>
                 <outlet property="citiesTokenField" destination="i3B-Mj-IDi" id="C7X-4l-FgG"/>
                 <outlet property="timeFormatSegmentedControl" destination="CRJ-CZ-w5J" id="ADR-ze-LUC"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -76,14 +76,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="YuL-aW-YeG">
-                        <rect key="frame" x="114" y="142" width="44" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="23" id="msl-tp-NDG"/>
-                            <constraint firstAttribute="width" constant="44" id="yJ8-Zm-tmO"/>
-                        </constraints>
-                        <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </colorWell>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Yhb-13-p8m">
                         <rect key="frame" x="12" y="119" width="440" height="5"/>
                     </box>
@@ -128,10 +120,25 @@
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-EO-IyK">
                         <rect key="frame" x="12" y="59" width="440" height="5"/>
                     </box>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Swv-p9-Yiy" customClass="ComboColorWell" customModule="WorldClock" customModuleProvider="target">
+                        <rect key="frame" x="114" y="142" width="70" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="KVh-wk-2Yt"/>
+                            <constraint firstAttribute="height" constant="24" id="zCB-Qj-OI2"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowClearColor" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="925-v3-xn6" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="26o-pH-blL"/>
+                    <constraint firstItem="Swv-p9-Yiy" firstAttribute="centerY" secondItem="925-v3-xn6" secondAttribute="centerY" id="2Ni-lr-LVI"/>
                     <constraint firstItem="qS2-vf-UMg" firstAttribute="top" secondItem="IxN-SS-Q7L" secondAttribute="bottom" constant="20" id="3Ft-GY-Uwe"/>
+                    <constraint firstItem="Swv-p9-Yiy" firstAttribute="leading" secondItem="CRJ-CZ-w5J" secondAttribute="leading" id="5Np-kg-0sj"/>
                     <constraint firstItem="iBP-gh-dDo" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="68" id="6ZW-Ij-M5o"/>
                     <constraint firstItem="qS2-vf-UMg" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="7MF-UF-tKQ"/>
                     <constraint firstAttribute="trailing" secondItem="Yhb-13-p8m" secondAttribute="trailing" constant="12" symbolic="YES" id="7yN-6I-PK6"/>
@@ -141,10 +148,8 @@
                     <constraint firstItem="yjj-2E-RcH" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="DBq-c3-Uv9"/>
                     <constraint firstAttribute="trailing" secondItem="VmO-QL-ILA" secondAttribute="trailing" constant="12" symbolic="YES" id="ECI-9T-nO1"/>
                     <constraint firstAttribute="bottom" secondItem="aLj-uo-Y8k" secondAttribute="bottom" constant="20" symbolic="YES" id="JX2-Ru-3F1"/>
-                    <constraint firstItem="Yhb-13-p8m" firstAttribute="top" secondItem="YuL-aW-YeG" secondAttribute="bottom" constant="20" id="K1e-2p-9IT"/>
                     <constraint firstItem="i3B-Mj-IDi" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="Ld6-Vb-K1t"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="12" symbolic="YES" id="OAw-SU-vW4"/>
-                    <constraint firstItem="YuL-aW-YeG" firstAttribute="centerY" secondItem="925-v3-xn6" secondAttribute="centerY" id="Pyr-Gu-qar"/>
                     <constraint firstItem="VmO-QL-ILA" firstAttribute="top" secondItem="CRJ-CZ-w5J" secondAttribute="bottom" constant="15" id="RTY-rr-6vZ"/>
                     <constraint firstItem="iFo-uW-j5N" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="U7J-73-tQo"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="top" secondItem="i3B-Mj-IDi" secondAttribute="bottom" constant="20" id="Wsz-6K-RYq"/>
@@ -153,7 +158,6 @@
                     <constraint firstItem="yjj-2E-RcH" firstAttribute="top" secondItem="Yhb-13-p8m" secondAttribute="bottom" constant="20" id="bio-kE-eQu"/>
                     <constraint firstItem="iFo-uW-j5N" firstAttribute="centerY" secondItem="yjj-2E-RcH" secondAttribute="centerY" id="bmS-Qm-JVD"/>
                     <constraint firstItem="CRJ-CZ-w5J" firstAttribute="centerY" secondItem="qS2-vf-UMg" secondAttribute="centerY" id="e8d-uT-K6U"/>
-                    <constraint firstItem="YuL-aW-YeG" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="fp0-n1-M47"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="top" secondItem="i3B-Mj-IDi" secondAttribute="bottom" constant="20" id="g9y-wY-IIe"/>
                     <constraint firstAttribute="trailing" secondItem="CYZ-EO-IyK" secondAttribute="trailing" constant="12" symbolic="YES" id="hw1-6c-wze"/>
                     <constraint firstItem="Yhb-13-p8m" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="12" symbolic="YES" id="iaj-cx-1pp"/>

@@ -12,7 +12,7 @@ class PreferencesWindow: NSWindowController {
     
     @IBOutlet var citiesTokenField: NSTokenField!
     @IBOutlet var timeFormatSegmentedControl: NSSegmentedControl!
-    @IBOutlet var accentColorWell: NSColorWell!
+    @IBOutlet var accentComboColorWell: ComboColorWell!
     
     override var windowNibName: NSNib.Name? {
         return "PreferencesWindow"
@@ -84,12 +84,12 @@ class PreferencesWindow: NSWindowController {
     
     // MARK: Accent Preferences
     func saveAccentColor() {
-        Settings.saveAccentColorToPreferences(color: accentColorWell.color)
+        Settings.saveAccentColorToPreferences(color: accentComboColorWell.color)
         NotificationCenter.default.post(name: Notification.Name("WorldClockAccentColorUpdated"), object: nil)
     }
     
     func loadAccentColor() {
-        accentColorWell.color = Settings.loadAccentColorFromPreferences()
+        accentComboColorWell.color = Settings.loadAccentColorFromPreferences()
     }
     
 }
