@@ -23,6 +23,31 @@ class Settings {
         case icon
     }
     
+    struct SystemMenuDisplayTypeConfig: Codable {
+        var date: Bool
+        var day: Bool
+        var time: Bool
+        
+        init(date: Bool = false, day: Bool = false, time: Bool = true) {
+            self.date = date
+            self.day = day
+            self.time = time
+            
+            if (!self.date && !self.day && !self.time) { self.time = true }
+        }
+        
+        func timeString() -> String {
+            var string = ""
+            if date { string += "d MMMM, " }
+            if day  { string += "EEE "}
+            if time { string += Settings.loadTimeFormatFromPreferences().rawValue }
+            if (string.last == " ") { string.removeLast() }
+            if (string.last == ",") { string.removeLast() }
+//            if (string == "") { string = Settings.loadTimeFormatFromPreferences().rawValue }
+            return string
+        }
+    }
+    
     // Saving and loading cities list
     static func saveCitiesToPreferences(cities: [String]) {
         saveData(data: cities, key: "cities")
@@ -64,7 +89,7 @@ class Settings {
         return data
     }
     
-    // Sacving and loading Menu Title
+    // Saving and loading Menu Title
     static func saveMenuTitleDisplayType(menuTitle: MenuTitleDisplayType.RawValue) {
         saveData(data: menuTitle, key: "menuTitleDisplayType")
     }
@@ -76,9 +101,22 @@ class Settings {
         
         return Settings.MenuTitleDisplayType(rawValue: data)!
     }
+    
+    // Saving and loading finer settings for System Menu title display option
+    static func saveSystemMenuDisplayTypeConfig(config: SystemMenuDisplayTypeConfig) {
+        let data: [Bool] = [config.date, config.day, config.time]
+        saveData(data: data, key: "SystemMenuDisplayTypeConfig")
+    }
+    
+    static func loadSystemMenuDisplayTypeConfig() -> SystemMenuDisplayTypeConfig {
+        guard let data = loadData(key: "SystemMenuDisplayTypeConfig", type: [Bool].self) else {
+            return Settings.SystemMenuDisplayTypeConfig.init()
+        }
+        
+        return Settings.SystemMenuDisplayTypeConfig.init(date: data[0], day: data[1], time: data[2])
+    }
 
     
-
     // Saving and loading master functions.
     fileprivate static func loadData<T>(key: String, type: T.Type) -> T? {
         guard let savedData = UserDefaults.standard.object(forKey: key) as? NSData else {

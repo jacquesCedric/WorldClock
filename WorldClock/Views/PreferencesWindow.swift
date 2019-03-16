@@ -30,6 +30,7 @@ class PreferencesWindow: NSWindowController {
         loadTimeFormat()
         loadAccentColor()
         loadMenuTitleStyle()
+        loadSystemTimeMenuItemConfiguration()
     }
     
     override func showWindow(_ sender: Any?) {
@@ -52,6 +53,7 @@ class PreferencesWindow: NSWindowController {
         saveTimeFormat()
         saveAccentColor()
         saveMenuTitleStyle()
+        saveSystemTimeMenuItemConfiguration()
         self.close()
     }
     
@@ -106,6 +108,26 @@ class PreferencesWindow: NSWindowController {
         menuTextPopUpButton.selectItem(at: Settings.loadMenuTitleDisplayType().rawValue)
         menuTextPopMenuChanged(self)
     }
+    
+    func saveSystemTimeMenuItemConfiguration() {
+        if (menuTextPopUpButton.indexOfSelectedItem == 0) {
+            let c = systemTimeDisplaySettings
+            let setting = Settings.SystemMenuDisplayTypeConfig(date: c?.isSelected(forSegment: 0) ?? false,
+                                                               day:  c?.isSelected(forSegment: 1) ?? false,
+                                                               time: c?.isSelected(forSegment: 2) ?? true)
+            
+            Settings.saveSystemMenuDisplayTypeConfig(config: setting)
+        }
+    }
+    
+    func loadSystemTimeMenuItemConfiguration() {
+        let s = Settings.loadSystemMenuDisplayTypeConfig()
+        let c = systemTimeDisplaySettings
+        c?.setSelected(s.date, forSegment: 0)
+        c?.setSelected(s.day, forSegment: 1)
+        c?.setSelected(s.time, forSegment: 2)
+    }
+    
     
     @IBAction func menuTextPopMenuChanged(_ sender: Any) {
         let systemTime: Bool = menuTextPopUpButton.indexOfSelectedItem == 0
