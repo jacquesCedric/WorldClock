@@ -14,6 +14,7 @@ class PreferencesWindow: NSWindowController {
     @IBOutlet var timeFormatSegmentedControl: NSSegmentedControl!
     @IBOutlet var accentComboColorWell: ComboColorWell!
     @IBOutlet var menuTextPopUpButton: NSPopUpButton!
+    @IBOutlet var systemTimeDisplaySettings: NSSegmentedControl!
     
     override var windowNibName: NSNib.Name? {
         return "PreferencesWindow"
@@ -103,6 +104,13 @@ class PreferencesWindow: NSWindowController {
     
     func loadMenuTitleStyle() {
         menuTextPopUpButton.selectItem(at: Settings.loadMenuTitleDisplayType().rawValue)
+        menuTextPopMenuChanged(self)
     }
     
+    @IBAction func menuTextPopMenuChanged(_ sender: Any) {
+        let systemTime: Bool = menuTextPopUpButton.indexOfSelectedItem == 0
+        let display: Bool = systemTime ? false : true
+        
+        systemTimeDisplaySettings.isHidden = display
+    }
 }

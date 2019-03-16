@@ -13,7 +13,7 @@ import AppKit
 
 class Settings {
     enum TimeHourFormat: String {
-        case twelveHour = "hh:mma"
+        case twelveHour     = "hh:mma"
         case twentyFourHour = "HH:mm"
     }
     

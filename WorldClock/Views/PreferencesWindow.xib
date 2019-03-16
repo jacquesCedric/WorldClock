@@ -10,6 +10,7 @@
                 <outlet property="accentComboColorWell" destination="Swv-p9-Yiy" id="7OH-Uf-lNY"/>
                 <outlet property="citiesTokenField" destination="i3B-Mj-IDi" id="C7X-4l-FgG"/>
                 <outlet property="menuTextPopUpButton" destination="iFo-uW-j5N" id="2YM-sh-UWU"/>
+                <outlet property="systemTimeDisplaySettings" destination="1Go-2i-sZs" id="ZdL-bW-fU9"/>
                 <outlet property="timeFormatSegmentedControl" destination="CRJ-CZ-w5J" id="ADR-ze-LUC"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -107,6 +108,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="menuTextPopMenuChanged:" target="-2" id="Y3d-eg-DZ4"/>
+                        </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aLj-uo-Y8k">
                         <rect key="frame" x="224" y="13" width="226" height="32"/>
@@ -134,6 +138,17 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowClearColor" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </customView>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-2i-sZs">
+                        <rect key="frame" x="248" y="82" width="197" height="20"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectAny" id="9Oe-vK-EmK">
+                            <font key="font" metaFont="cellTitle"/>
+                            <segments>
+                                <segment label="Date" width="64"/>
+                                <segment label="Day" width="64" tag="1"/>
+                                <segment label="Time" width="63" selected="YES"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="925-v3-xn6" firstAttribute="trailing" secondItem="iBP-gh-dDo" secondAttribute="trailing" id="26o-pH-blL"/>
@@ -152,6 +167,8 @@
                     <constraint firstItem="i3B-Mj-IDi" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="Ld6-Vb-K1t"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="12" symbolic="YES" id="OAw-SU-vW4"/>
                     <constraint firstItem="VmO-QL-ILA" firstAttribute="top" secondItem="CRJ-CZ-w5J" secondAttribute="bottom" constant="15" id="RTY-rr-6vZ"/>
+                    <constraint firstItem="1Go-2i-sZs" firstAttribute="leading" secondItem="iFo-uW-j5N" secondAttribute="trailing" constant="15" id="SSB-R9-TyR"/>
+                    <constraint firstAttribute="trailing" secondItem="1Go-2i-sZs" secondAttribute="trailing" constant="20" symbolic="YES" id="T82-5r-PQz"/>
                     <constraint firstItem="iFo-uW-j5N" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="U7J-73-tQo"/>
                     <constraint firstItem="IxN-SS-Q7L" firstAttribute="top" secondItem="i3B-Mj-IDi" secondAttribute="bottom" constant="20" id="Wsz-6K-RYq"/>
                     <constraint firstItem="CRJ-CZ-w5J" firstAttribute="leading" secondItem="i3B-Mj-IDi" secondAttribute="leading" id="XYy-7W-Sdg"/>
@@ -165,6 +182,7 @@
                     <constraint firstItem="aLj-uo-Y8k" firstAttribute="top" secondItem="CYZ-EO-IyK" secondAttribute="bottom" constant="20" id="o1l-7q-B8i"/>
                     <constraint firstAttribute="trailing" secondItem="aLj-uo-Y8k" secondAttribute="trailing" constant="20" symbolic="YES" id="qNw-ch-CUp"/>
                     <constraint firstAttribute="trailing" secondItem="i3B-Mj-IDi" secondAttribute="trailing" constant="20" symbolic="YES" id="xDD-C3-ZOk"/>
+                    <constraint firstItem="1Go-2i-sZs" firstAttribute="top" secondItem="Yhb-13-p8m" secondAttribute="bottom" constant="20" id="xID-ja-KxH"/>
                     <constraint firstItem="iBP-gh-dDo" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="yJb-WR-Rfs"/>
                     <constraint firstItem="VmO-QL-ILA" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="12" symbolic="YES" id="ynG-35-dfN"/>
                     <constraint firstItem="925-v3-xn6" firstAttribute="top" secondItem="VmO-QL-ILA" secondAttribute="bottom" constant="20" id="zNE-QL-ynT"/>
