@@ -9,9 +9,10 @@
 import Cocoa
 
 class ClockMenuController: NSObject {
-    
+    let systemCity = CityTime.init(timezoneID: TimeZone.current.identifier)
     var cities: [CityTime] = []
     var currentClocks: [NSMenuItem] = []
+    var timer: Timer = Timer()
 
     // MARK: GUI stuff
     @IBOutlet weak var statusMenu: NSMenu!
@@ -64,13 +65,23 @@ class ClockMenuController: NSObject {
     @objc func setMenuTitle() {
         let menuStyle = Settings.loadMenuTitleDisplayType()
         
+        if menuStyle != .systemTime {
+            timer.invalidate()
+            timer = Timer()
+        }
+        
         switch menuStyle {
         case .systemTime:
             statusItem.button?.title = "System Time"
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(testMenu), userInfo: nil, repeats: true)
         case .appName:
             statusItem.button?.title = "WorldClock"
         case .icon:
             statusItem.button?.title = "🕙"
         }
+    }
+    
+    @objc func testMenu() {
+        statusItem.button?.title = systemCity.time
     }
 }
