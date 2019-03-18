@@ -16,13 +16,13 @@ Open the project in Xcode and build. No need to do anything else.
 ## Settings
 <img src="img/worldclockprefs.png" align="center">
 
-- Cities: The list of cities to keep clocks of. Populates from `Foundation`'s `Timezone.knownTimezoneIdentifiers`
-- Time Format: 12 or 24 hour time.
-- Accent Color: Accent color for Day value in clock widgets.
-- Menu Text: Three options
-	- System Time: Current system time, live updating. Customizable to show date/day/time. Uses 12/24-hour time as specified above
-	- App Name: The name of the app
-	- Icon: A little clock icon
+- **Cities**: The list of cities to keep clocks of. Populates from `Foundation`'s `Timezone.knownTimezoneIdentifiers`
+- **Time Format**: 12 or 24 hour time.
+- **Accent Color**: Accent color for Day value in clock widgets.
+- **Menu Text**: Three options
+	- *System Time*: Current system time, live updating. Customizable to show date/day/time. Uses 12/24-hour time as specified above
+	- *App Name*: The name of the app
+	- *Icon*: A little clock icon
 
 ## License
 `WorldClock` is available under a GPLv3 license. See the LICENSE file for more details.
