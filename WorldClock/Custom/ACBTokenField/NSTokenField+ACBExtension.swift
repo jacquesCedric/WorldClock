@@ -322,7 +322,7 @@ extension NSTokenField {
         }
         
         let tokens = self.tokens
-        let tokenIndex = tokens.index(of: token)
+        let tokenIndex = tokens.firstIndex(of: token)
         
         return tokenIndex
     }
