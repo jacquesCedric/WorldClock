@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -21,7 +21,7 @@
         <menu id="QDM-iq-oVr">
             <items>
                 <menuItem isSeparatorItem="YES" id="qMW-Av-6yX"/>
-                <menuItem title="Preferences" keyEquivalent="," id="hVl-Zs-pav">
+                <menuItem title="Preferences..." keyEquivalent="," id="hVl-Zs-pav">
                     <connections>
                         <action selector="preferencesClicked:" target="SbY-SG-tTZ" id="Xcm-qX-NWe"/>
                     </connections>
